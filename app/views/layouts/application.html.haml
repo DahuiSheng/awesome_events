@@ -11,7 +11,18 @@
     %header.navbar.navbar-expand-sm.navbar-light.bg-light
       .container
         = link_to "AwesomeEvents", root_path, class: "navbar-brand mr-auto"
+
         %ul.navbar-nav
+          %li.nav-item
+            -# = link_to "イベント一覧", events_path, class: "nav-link"
+            = form_tag(events_path, method: "post") do 
+              %button{type: "submit"}
+                イベント一覧
+          %li.nav-item
+            -# = link_to "新規作成", new_event_path, class: "nav-link"
+            = form_tag(new_event_path, method: "post") do 
+              %button{type: "submit"}
+                新規作成
           - if logged_in?
             %li.nav-item
               = form_tag(logout_path, method: "delete") do 
